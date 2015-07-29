@@ -18,3 +18,11 @@ body {
 	font-size: 4em;
 	text-align: center;
 }
+
+.hidden {
+	display: none;
+}
+
+#placeholder {
+	color: gray;
+}

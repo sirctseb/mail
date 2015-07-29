@@ -37,15 +37,21 @@ var boot = function() {
 
 var updateDisplay = function() {
 	// set input display
-	document.querySelector('#input-display').textContent = mail.input.join('');
+	document.querySelector('#input-value').textContent = mail.input.join('');
 
+	console.log(document.querySelector('#placeholder').classList);
 	// show address lookup
 	if (mail.input.length === 2) {
+		document.querySelector('#placeholder').classList.remove('hidden');
 		document.querySelector('#lookup-display').textContent = 'Detroit, MI';
 	} else if (mail.input.length > 2) {
+		// TODO assumes it will have no other classes
+		document.querySelector('#placeholder').classList.add('hidden');
 		// TODO perform zip lookup and display
 		document.querySelector('#lookup-display').textContent = 'Other city, state';
 	} else {
+		// TODO assumes it will have no other classes
+		document.querySelector('#placeholder').classList.add('hidden');
 		document.querySelector('#lookup-display').textContent = '';
 	}
 };

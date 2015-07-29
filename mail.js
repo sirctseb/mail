@@ -92,10 +92,9 @@ var updateDisplay = function() {
 	} else if (mail.input.length === 3) {
 		document.querySelector('#placeholder').classList.add('hidden');
 		lookupZip(mail.input, function(result) {
-			console.log(result);
 			document.querySelector('#lookup-display').textContent = result.join(', ');
 		})
-	} if (mail.input.length > 3) {
+	} else if (mail.input.length > 3) {
 		// TODO anything on 4,5?
 	} else {
 		document.querySelector('#placeholder').classList.add('hidden');

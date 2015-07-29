@@ -44,7 +44,7 @@ var updateDisplay = function() {
 		document.querySelector('#lookup-display').textContent = 'Detroit, MI';
 	} else if (mail.input.length > 2) {
 		// TODO perform zip lookup and display
-		document.querySelector('#lookup-display').textContent = 'Some other city, state';
+		document.querySelector('#lookup-display').textContent = 'Other city, state';
 	} else {
 		document.querySelector('#lookup-display').textContent = '';
 	}

@@ -87,16 +87,22 @@ var updateDisplay = function() {
 
 	// show address lookup
 	if (mail.input.length === 2) {
+		document.querySelector('#suffix').textContent = '';
 		document.querySelector('#placeholder').classList.remove('hidden');
 		document.querySelector('#lookup-display').textContent = 'Detroit, MI';
 	} else if (mail.input.length === 3) {
+		document.querySelector('#suffix').textContent = '--';
+		document.querySelector('#placeholder').classList.remove('hidden');
 		document.querySelector('#placeholder').classList.add('hidden');
 		lookupZip(mail.input, function(result) {
 			document.querySelector('#lookup-display').textContent = result.join(', ');
 		})
-	} else if (mail.input.length > 3) {
-		// TODO anything on 4,5?
+	} else if (mail.input.length === 4) {
+		document.querySelector('#suffix').textContent = '-';
+	} else if (mail.input.length === 5) {
+		document.querySelector('#suffix').textContent = '';
 	} else {
+		document.querySelector('#suffix').textContent = '';
 		document.querySelector('#placeholder').classList.add('hidden');
 		document.querySelector('#lookup-display').textContent = '';
 	}

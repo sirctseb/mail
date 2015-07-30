@@ -4,8 +4,9 @@ body {
 }
 
 #display-container {
-	width: 100%;
+	width: 70%;
 	margin-top: 10em;
+	float: left;
 }
 
 .display {
@@ -61,3 +62,33 @@ body {
   -ms-transition: none !important;
   transition: none !important;
 }
+
+#controls-container {
+	width: 29%;
+	height: 100%;
+	border-left: 1px solid black;
+	float: left;
+	position: relative;
+	font-size: 2em;
+}
+
+.control {
+	position:absolute;
+}
+
+#numeric-input {
+	right: 3em;
+}
+#numeric-input>div {
+	width: 33%;
+	float: left;
+	text-align: center;
+}
+#numeric-input>#zerokey {
+	width: 100%;
+}
+
+#delete-input {
+	right: 5em;
+}
+

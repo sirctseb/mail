@@ -47,11 +47,26 @@ var lookupZip = function(zip, onLookup) {
 	} else {
 		// check via api
 		var suffixes = ['01', '02', '03'];
-		var result = lookupZipViaAPI(zip.join('') + '98', function(result) {
+		tryAPILookups(zip, suffixes, onLookup);
+	}
+};
+
+var tryAPILookups = function(zip, suffixes, onLookup) {
+	// check if we are out of suffixes
+	if (suffixes.length === 0) {
+		onLookup(null);
+		return;
+	}
+
+	lookupZipViaAPI(zip.join('') + suffixes[0], function(result) {
+		// if no result, try the next suffix
+		if (result === null) {
+			tryAPILookups(zip, suffixes.slice(1), onLookup);
+		} else {
 			mail.zipCache[zip.toString()] = result;
 			onLookup(result);
-		});
-	}
+		}
+	});
 };
 
 var lookupZipViaAPI = function(zip, onLookup) {
@@ -71,7 +86,7 @@ var lookupZipViaAPI = function(zip, onLookup) {
 			if (request.status === 200) {
 				var obj = JSON.parse(request.responseText);
 				onLookup([obj['city'], obj['state']]);
-			} else if (request.status === 400) {
+			} else if (request.status === 404) {
 				onLookup(null);
 			}
 			mail.apiRequest = null;
@@ -95,7 +110,11 @@ var updateDisplay = function() {
 		document.querySelector('#placeholder').classList.remove('hidden');
 		document.querySelector('#placeholder').classList.add('hidden');
 		lookupZip(mail.input, function(result) {
-			document.querySelector('#lookup-display').textContent = result.join(', ');
+			if (result === null) {
+				document.querySelector('#lookup-display').textContent = 'Invalid zip';
+			} else {
+				document.querySelector('#lookup-display').textContent = result.join(', ');
+			}
 		})
 	} else if (mail.input.length === 4) {
 		document.querySelector('#suffix').textContent = '-';

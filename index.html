@@ -9,12 +9,14 @@
   </head>
   <body onload='boot();'>
   	<div id='display-container'>
+      <div id='input-display-label' class='label'>ZIP CODE INPUT</div>
 	  	<div id='input-display' class='display'>
 	  	<span id='placeholder' class='hidden'>482</span><span id='input-value'></span><span id='suffix'></span>
 	  	</div>
 	  	<div id='video-display' class='display'>
-        <div id='letter-container'><div class='letter'><img src='img/1.jpg'></div><div class='letter'><img src='img/2.jpg'></div></div>
+        <div id='letter-container'><div class='letter'><img src='img/1.jpg'></div><div class='letter'><img src='img/2.jpg'></div><div class='letter'><img src='img/3.jpg'></div><div class='letter'><img src='img/4.gif'></div><div class='letter'><img src='img/5.gif'></div><div class='letter'><img src='img/6.gif'></div><div class='letter'><img src='img/7.jpg'></div><div class='letter'><img src='img/8.png'></div></div>
 	  	</div>
+      <div id='lookup-display-label' class='label'>CITY, STATE</div>
 	  	<div id='lookup-display' class='display'>
 	  	</div>
   	</div>
@@ -27,9 +29,9 @@
         <div>1</div><div>2</div><div>3</div>
         <div id='zerokey'>0</div>
       </div>
-      <div id='confirm-input' class='control'>confirm</div>
-      <div id='nix-input' class='control'>nix</div>
-      <div id='delete-input' class='control'>delete</div>
+      <div id='confirm-input' class='control'><img src='img/thumbs-up.svg'></div>
+      <div id='nix-input' class='control'><img src='img/easy-button.png'></div>
+      <div id='delete-input' class='control'><img src='img/backspace.svg'></div>
     </div>
   </body>
 </html>

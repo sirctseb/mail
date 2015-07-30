@@ -45,21 +45,21 @@ body {
 }
 
 #video-display {
-	overflow-x: hidden;
+	overflow: hidden;
 	height: 5em;
 	width: 9em;
 }
 
 #letter-container {
 	height: 100%;
-	width: 200%;
+	width: 900%;
 	position: relative;
 	left: 0;
 	-webkit-transition: left 0.5s;
 }
 
 .letter {
-	display: inline-block;
+	float: left;
 	height: 100%;
 	width: 9em;
 }

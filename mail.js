@@ -50,9 +50,6 @@ var moveLetter = function() {
 		container.offsetHeight;
 		container.classList.remove('notransition');
 		container.appendChild(container.firstChild);
-		setTimeout(function() {
-			container.style.display = 'block';
-		}, 100);
 		container.removeEventListener('webkitTransitionEnd', cycleLetters, true);
 	};
 	container.addEventListener('webkitTransitionEnd', cycleLetters, true);

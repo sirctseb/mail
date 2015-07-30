@@ -4,7 +4,7 @@ var mail = {
 	detroitPrefix: '482',
 	numeric: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
 	// TODO figure out how to use backspace without navigating back (should be 8)
-	deleteCode: 59,
+	deleteCode: 8,
 	enterCode: 13,
 	cancelCode: 27,
 	zipAPIKey: 'js-9KQAgn5a4bqHxzAYivYpN2WYoJlZCjgM47mlurvzDWgbvRaOn8dba9azTvzwOPiT',
@@ -18,10 +18,7 @@ var boot = function() {
 		if (mail.input.length < 5 && event.which >= 48 && event.which <= 58) {
 			mail.input.push(event.which - 48);
 			updateDisplay();
-		} else if (mail.input.length > 0 && event.which === mail.deleteCode) {
-			mail.input.pop();
-			updateDisplay();
-	 	} else if (event.which === 97) {
+		} else if (event.which === 97) {
 	 		lookupZipViaAPI(mail.input.join(''), function(response) {
 				document.querySelector('#lookup-display').textContent = response.join(', ');
 	 		});
@@ -33,10 +30,15 @@ var boot = function() {
 			// TODO feedback that letter was sent to box
 			mail.input = [];
 			updateDisplay();
+			moveLetter();
 		} else if (event.which === mail.cancelCode) {
 			mail.input = [];
 			updateDisplay();
 			moveLetter();
+		} else if (event.keyCode === mail.deleteCode) {
+			mail.input.pop();
+			updateDisplay();
+			event.preventDefault();
 		}
 	};
 	var container = document.querySelector('#letter-container');

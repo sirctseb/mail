@@ -30,3 +30,23 @@ body {
 #suffix {
 	color: gray;
 }
+
+#video-display {
+	overflow-x: hidden;
+	height: 3em;
+}
+
+#letter-container {
+	height: 100%;
+	width: 200%;
+}
+
+.letter {
+	display: inline-block;
+	height: 100%;
+	width: 7em;
+}
+
+.letter img {
+	height: 100%;
+}

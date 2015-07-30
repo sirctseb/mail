@@ -39,20 +39,19 @@ var boot = function() {
 			moveLetter();
 		}
 	};
-};
-
-var moveLetter = function() {
 	var container = document.querySelector('#letter-container');
-	var cycleLetters;
-	cycleLetters = function() {
+	var cycleLetters = function() {
 		container.classList.add('notransition');
 		container.style.left = '0';
 		container.offsetHeight;
 		container.classList.remove('notransition');
 		container.appendChild(container.firstChild);
-		container.removeEventListener('webkitTransitionEnd', cycleLetters, true);
 	};
 	container.addEventListener('webkitTransitionEnd', cycleLetters, true);
+};
+
+var moveLetter = function() {
+	var container = document.querySelector('#letter-container');
 	container.style.left = '-7em';
 };
 

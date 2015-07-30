@@ -46,7 +46,8 @@ body {
 
 #video-display {
 	overflow-x: hidden;
-	height: 3em;
+	height: 5em;
+	width: 9em;
 }
 
 #letter-container {
@@ -60,7 +61,7 @@ body {
 .letter {
 	display: inline-block;
 	height: 100%;
-	width: 7em;
+	width: 9em;
 }
 
 .letter img {

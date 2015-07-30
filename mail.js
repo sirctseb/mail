@@ -54,7 +54,7 @@ var boot = function() {
 
 var moveLetter = function() {
 	var container = document.querySelector('#letter-container');
-	container.style.left = '-7em';
+	container.style.left = '-9em';
 };
 
 // checks cache for zip entry and looks up via API if missed

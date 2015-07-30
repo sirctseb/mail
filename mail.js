@@ -56,7 +56,6 @@ var moveLetter = function() {
 		container.removeEventListener('webkitTransitionEnd', cycleLetters, true);
 	};
 	container.addEventListener('webkitTransitionEnd', cycleLetters, true);
-	console.log('setting left');
 	container.style.left = '-7em';
 };
 

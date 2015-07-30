@@ -39,6 +39,9 @@ body {
 #letter-container {
 	height: 100%;
 	width: 200%;
+	position: relative;
+	left: 0;
+	-webkit-transition: left 0.5s;
 }
 
 .letter {
@@ -49,4 +52,12 @@ body {
 
 .letter img {
 	height: 100%;
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
 }

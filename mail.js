@@ -36,8 +36,28 @@ var boot = function() {
 		} else if (event.which === mail.cancelCode) {
 			mail.input = [];
 			updateDisplay();
+			moveLetter();
 		}
 	};
+};
+
+var moveLetter = function() {
+	var container = document.querySelector('#letter-container');
+	var cycleLetters;
+	cycleLetters = function() {
+		container.classList.add('notransition');
+		container.style.left = '0';
+		container.offsetHeight;
+		container.classList.remove('notransition');
+		container.appendChild(container.firstChild);
+		setTimeout(function() {
+			container.style.display = 'block';
+		}, 100);
+		container.removeEventListener('webkitTransitionEnd', cycleLetters, true);
+	};
+	container.addEventListener('webkitTransitionEnd', cycleLetters, true);
+	console.log('setting left');
+	container.style.left = '-7em';
 };
 
 // checks cache for zip entry and looks up via API if missed
